@@ -3,8 +3,10 @@
     "allowJs": false,
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
+    "noEmit": true,
+    "esModuleInterop": true,
     "jsx": "react-native",
-    "module": "es2015",
+    "module": "ESNext",
     "moduleResolution": "node",
     "noImplicitAny": false,
     "noImplicitReturns": true,
@@ -15,9 +17,18 @@
     "lib": ["esnext", "dom"],
     "skipLibCheck": true,
     "resolveJsonModule": true,
-    "baseUrl": "./"
+    "baseUrl": "./",
+    "paths": {
+      "~/*": ["./*"],
+      "app/*": ["./app/*"],
+      "src/*": ["./app/src/*"],
+      "navigators/*": ["./app/navigators/*"],
+      "screens/*": ["app/components/screens/*"],
+      "components/*": ["./app/components/*"],
+      "assets/*": ["./assets/*"]
+    }
   },
   "exclude": ["node_modules"],
-  "include": ["index.js", "App.js", "app", "test", "*.js"],
+  "include": ["index.js", "App.js", "app", "test", "*.js", "*.ts"],
   "extends": "expo/tsconfig.base"
 }
