@@ -1,6 +1,6 @@
 ---
 patches:
-- path: "app/screens/index.ts"
+- path: "app/components/screens/index.ts"
   append: "export * from \"./<%= props.pascalCaseName %>Screen\"\n"
   skip: <%= props.skipIndexFile %>
 - path: "app/navigators/AppNavigator.tsx"
@@ -18,7 +18,7 @@ import { NativeStackScreenProps } from "@react-navigation/native-stack"
 import { AppStackScreenProps } from "app/navigators"
 import { Screen, Text } from "app/components"
 // import { useNavigation } from "@react-navigation/native"
-// import { useStores } from "app/models"
+// import { useStores } from "app/core/models"
 
 interface <%= props.pascalCaseName %>ScreenProps extends NativeStackScreenProps<AppStackScreenProps<"<%= props.pascalCaseName %>">> {}
 
