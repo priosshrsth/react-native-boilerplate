@@ -1,4 +1,4 @@
-package studio.outside.io;
+package com.studio.outside.io;
 
 import android.app.Application;
 import android.content.res.Configuration;

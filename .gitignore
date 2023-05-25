@@ -84,3 +84,6 @@ web-build/
 
 # Configurations
 !env.js
+.env
+
+debug.keystore.old

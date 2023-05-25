@@ -1,4 +1,4 @@
-package studio.outside.io;
+package com.studio.outside.io;
 
 import android.os.Build;
 import android.os.Bundle;
