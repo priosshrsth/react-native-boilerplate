@@ -113,9 +113,9 @@ android {
 
     compileSdkVersion rootProject.ext.compileSdkVersion
 
-    namespace "studio.outside.io"
+    namespace "com.studio.outside.io"
     defaultConfig {
-        applicationId "studio.outside.io"
+        applicationId "com.studio.outside.io"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

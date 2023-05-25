@@ -1,11 +1,13 @@
 import { observer } from 'mobx-react-lite';
 import React, { FC } from 'react';
-import { Image, ImageStyle, TextStyle, View, ViewStyle } from 'react-native';
+import { Image, ImageStyle, ScrollView, TextStyle, View, ViewStyle } from 'react-native';
 import { Text } from 'components/common/Text';
 import { isRTL } from 'app/i18n';
 import { colors, spacing } from 'src/theme';
 import { useSafeAreaInsetsStyle } from 'src/hooks/useSafeAreaInsetsStyle';
 import { type AppStackScreenProps } from 'app/navigators';
+import GoogleLoginButton from 'components/features/auth/google.login.btn';
+import { StatusBar } from 'expo-status-bar';
 
 const welcomeLogo = require('assets/images/logo.png');
 const welcomeFace = require('assets/images/welcome-face.png');
@@ -16,18 +18,23 @@ export const WelcomeScreen: FC<WelcomeScreenProps> = observer(function WelcomeSc
   const $bottomContainerInsets = useSafeAreaInsetsStyle(['bottom']);
 
   return (
-    <View style={$container}>
-      <View style={$topContainer}>
+    <ScrollView style={$container}>
+      <StatusBar />
+      <View className="flex bg-gray-300 pt-4 pb-20" style={$topContainer}>
         <Image style={$welcomeLogo} source={welcomeLogo} resizeMode="contain" />
         <Text testID="welcome-heading" style={$welcomeHeading} tx="welcomeScreen.readyForLaunch" preset="heading" />
         <Text tx="welcomeScreen.exciting" preset="subheading" />
         <Image style={$welcomeFace} source={welcomeFace} resizeMode="contain" />
       </View>
 
-      <View style={[$bottomContainer, $bottomContainerInsets]}>
-        <Text tx="welcomeScreen.postscript" size="md" />
+      <View>
+        <GoogleLoginButton />
       </View>
-    </View>
+
+      <View style={[]}>
+        <Text className="text-blue-500 font-bold" tx="welcomeScreen.postscript" size="md" />
+      </View>
+    </ScrollView>
   );
 });
 
@@ -42,6 +49,7 @@ const $topContainer: ViewStyle = {
   flexBasis: '57%',
   justifyContent: 'center',
   paddingHorizontal: spacing.large,
+  position: 'relative',
 };
 
 const $bottomContainer: ViewStyle = {
@@ -64,8 +72,8 @@ const $welcomeFace: ImageStyle = {
   height: 169,
   width: 269,
   position: 'absolute',
-  bottom: -47,
-  right: -80,
+  bottom: -0,
+  right: -70,
   transform: [{ scaleX: isRTL ? -1 : 1 }],
 };
 

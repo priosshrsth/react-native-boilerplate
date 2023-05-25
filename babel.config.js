@@ -11,6 +11,7 @@ for (const alias in pathAlias) {
 
 /** @type {import('@babel/core').TransformOptions['plugins']} */
 const plugins = [
+  'nativewind/babel',
   [
     /** Enables baseUrl: "./" option in tsconfig.json to work @see https://github.com/entwicklerstube/babel-plugin-root-import */
     'babel-plugin-root-import',
@@ -37,6 +38,19 @@ const plugins = [
   ],
   /** NOTE: This must be last in the plugins @see https://docs.swmansion.com/react-native-reanimated/docs/fundamentals/installation/#babel-plugin */
   'react-native-reanimated/plugin',
+  [
+    'module:react-native-dotenv',
+    {
+      envName: 'APP_ENV',
+      moduleName: '@env',
+      path: '.env',
+      blocklist: null,
+      allowlist: null,
+      safe: false,
+      allowUndefined: true,
+      verbose: false,
+    },
+  ],
 ];
 
 /** @type {import('@babel/core').TransformOptions} */
